@@ -76,3 +76,10 @@ class Reaccion
 ## En caso de usar IA-Generativa para consulta de información
 
 - En un archivo llamado informacion.md; explicando a detalle el uso de cada prompt
+
+## Avances hasta ahora
+
+- Creacion de las clases:
+- configuracion.py para establecer la conexion a la base de datos
+- genera_tablas.py para crear las clases(tablas) en la base de datos
+- ingreso_datos.py para leer los csv y mandar los datos a la base de datos
