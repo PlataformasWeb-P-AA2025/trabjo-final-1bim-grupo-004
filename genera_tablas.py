@@ -17,7 +17,7 @@ class Usuario(Base):
     publicaciones = relationship("Publicacion", back_populates="usuario")
     reacciones = relationship("Reaccion", back_populates="usuario")
 
-    def _repr_(self):
+    def __repr__(self):
         return f"Usuario: id={self.id}, nombre={self.nombre}"
 
 class Publicacion(Base):
@@ -29,7 +29,7 @@ class Publicacion(Base):
     usuario = relationship("Usuario", back_populates="publicaciones")
     reacciones = relationship("Reaccion", back_populates="publicacion")
 
-    def _repr_(self):
+    def __repr__(self):
         return f"Publicacion: id={self.id}, usuario_id={self.usuario_id}, contenido={self.contenido}"
 
 class Reaccion(Base):
@@ -44,7 +44,7 @@ class Reaccion(Base):
 
     __table_args__ = (UniqueConstraint('usuario_id', 'publicacion_id', name='uix_usuario_publicacion'),)
 
-    def _repr_(self):
+    def __repr__(self):
         return f"Reaccion: usuario_id={self.usuario_id}, publicacion_id={self.publicacion_id}, emocion={self.emocion}"
 
 Base.metadata.create_all(engine)

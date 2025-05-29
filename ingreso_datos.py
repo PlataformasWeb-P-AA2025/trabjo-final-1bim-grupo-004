@@ -23,6 +23,7 @@ for _, row in usuarios_df.iterrows():
 # Crear publicaciones
 for _, row in publicaciones_df.iterrows():
     nombre_usuario, contenido = row["usuario|publicacion"].split("|", 1)
+    
     usuario = session.query(Usuario).filter_by(nombre=nombre_usuario).first()
     if usuario:
         session.add(Publicacion(contenido=contenido, usuario=usuario))
